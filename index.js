@@ -18,7 +18,12 @@ let command = argv._[0]
 // console.log('yargs',argv);
 
 if (command === 'add') {
-  notes.addNote(argv.title, argv.body)
+  let note = notes.addNote(argv.title, argv.body)
+  if (note) {
+    console.log('note added', note);
+  } else {
+    console.log('note title already exists');
+  }
 } else if (command === 'list') {
   notes.getAll()
 } else if (command === 'read') {
