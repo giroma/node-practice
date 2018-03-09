@@ -1,4 +1,3 @@
-console.log('starting notes');
 
 const fs = require('fs')
 
@@ -32,10 +31,12 @@ let addNote = (title, body) => {
   }
 }
 let getAll = () => {
-  console.log('listing notes');
+  return fetchNotes()
 }
 let readNote = (title) => {
-  console.log('reading note', title);
+  let notes = fetchNotes()
+  let readNote = notes.filter((note) => note.title === title) //create new array without the note to be removed
+  return readNote
 }
 let removeNote = (title) => {
   let notes = fetchNotes()

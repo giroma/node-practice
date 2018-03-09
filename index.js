@@ -25,9 +25,10 @@ if (command === 'add') {
     console.log('note title already exists');
   }
 } else if (command === 'list') {
-  notes.getAll()
+  console.log(notes.getAll());
 } else if (command === 'read') {
-  notes.readNote(argv.title)
+  let note = notes.readNote(argv.title)
+  console.log(note);
 } else if (command === 'remove') {
   let noteRemoved = notes.removeNote(argv.title)
   let message = noteRemoved ? 'note removed':'cant remove, note doesnt exist'
