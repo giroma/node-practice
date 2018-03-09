@@ -38,7 +38,10 @@ let readNote = (title) => {
   console.log('reading note', title);
 }
 let removeNote = (title) => {
-  console.log('removing note', title);
+  let notes = fetchNotes()
+  let newNotes = notes.filter((note) => note.title !== title) //create new array without the note to be removed
+  saveNote(newNotes)
+  return notes.length !== newNotes.length
 }
 
 module.exports = {   //makes the bellow a function you can call on notes
